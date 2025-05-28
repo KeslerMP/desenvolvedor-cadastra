@@ -1,19 +1,123 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Desenvolvedor Cadastra</title>
-  <link rel="stylesheet" href="main.css" />
-</head>
-
-<body>
-
-</body>
-<h1>Desafio Cadastra</h1>
-
-<script src="bundle.js"></script>
-
+   <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Desenvolvedor Cadastra</title>
+      <link rel="stylesheet" href="main.css" />
+   </head>
+   <body>
+      <div class="minicartShelfContainer">
+         <div class="minicartProducts">
+            <div class="minicartProductsContainer">
+               <p class="minicartTitle">
+                  Seu Carrinho
+               </p>
+               <div class="minicartItems">
+               </div>
+            </div>
+            <div>
+               <p class="minicartPriceContainer">
+                  <span>Total: </span>
+                  <span class="minicartTotal">R$ 0,00</span>
+               </p>
+               <div class="minicartController">
+                  <div class="checkoutButton">
+                     Finalizar compra
+                  </div>
+                  <div class="closeMinicart">
+                     Fechar
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <header class="header">
+         <div class="headerContainer">
+            <img src="./img/cadastra.png" alt="Cadastra Logo">
+            <div id="minicartContainer">
+               <img src="./img/minicart.png" id="minicart" alt="minicart">
+               <div>0</div>
+            </div>
+         </div>
+      </header>
+      <div class="pageContentContainer">
+         <div class="orderByContainer">
+            <p class="pageTitle">Blusas</p>
+            <div class="orderBy">
+               <p class="orderByText">Ordenar Por: <img src="./img/Vector1.png" alt=""></p>
+               <div class="orderByController">
+                  <p >ORDENAR</p>
+                  <p id="closeOrder"><img src="./img/close.png" alt="close icon"></p>
+               </div>
+               <div class="options">
+                  <p id="orderByRecent">Mais recentes</p>
+                  <p id="orderByCheapest">Menor preço</p>
+                  <p id="orderByExpensive">Maior preço</p>
+               </div>
+            </div>
+         </div>
+         <div class="mobileButtons">
+            <div id="filterButton">Filtrar</div>
+            <div id="orderButton">Ordenar</div>
+         </div>
+         <section class="productSearchMainSection">
+            <form id="filters">
+               <div class="innerFilterContainer">
+                  <div class="filterController">
+                     <p>FILTRAR</p>
+                     <p class="closeFilters"><img src="./img/close.png" alt="close icon"></p>
+                  </div>
+                  <div class="filterCategoriesContainer">
+                     <div class="filterCategories">
+                        <p class="firstTitle filterTitle">
+                           <span>CORES</span>
+                           <img class="arrow" src="./img/Vector1.png" alt="">
+                        <div class="filterColors">
+                          <div class="allCollorsOpen">
+                              <p class="showAllColors">Ver todas as cores <img class="arrow showAllColors" src="./img/arrow.png" alt=""></p>
+                        </p>
+                          </div>
+                        </div>
+                     </div>
+                     <div class="filterColors">
+                        <p class="filterTitle"><span>Tamanhos</span> <img class="arrow" src="./img/Vector1.png" alt=""></p>
+                        <div class="filterSizes">
+                           <div class="checkbox-grid">
+                           </div>
+                        </div>
+                     </div>
+                     <div class="filterPrices">
+                        <p class="filterTitle"><span>Faixa de preço</span> <img class="arrow" src="./img/Vector1.png" alt=""></p>
+                        <div class="filterColors">
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="filterMobileButtons">
+                  <div id="applyFilter">
+                     Aplicar
+                  </div>
+                  <div id="clearFilter">
+                     Limpar
+                  </div>
+               </div>
+            </form>
+            <div class="productsContainer">
+               <div id="products">
+               </div>
+               <div id="loadMore">CARREGAR MAIS</div>
+            </div>
+         </section>
+      </div>
+      <footer>
+         CADASTRA: Implantação de E-commerce VTEX
+      </footer>
+   </body>
+   <script src="bundle.js"></script>
+   <script>
+      build()
+      handleFormChange()
+   </script>
 </html>
