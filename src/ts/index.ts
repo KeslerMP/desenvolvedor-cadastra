@@ -419,30 +419,77 @@ class GerenciadorProdutos {
 
     const imagemItem = document.createElement("img");
     imagemItem.src = produto.image;
+    imagemItem.classList.add("minicartItemImage");
 
-    const containerInfo = document.createElement("div");
+    const containerInfoProduto = document.createElement("div");
+    containerInfoProduto.classList.add("minicartProductInfo");
+
+    const headerInfo = document.createElement("div");
+    headerInfo.classList.add("minicartItemHeader");
 
     const tituloProduto = document.createElement("p");
     tituloProduto.innerHTML = produto.name;
-    tituloProduto.classList.add("productName");
-
-    const precoProduto = document.createElement("p");
-    precoProduto.innerHTML = `R$ ${produto.price.toFixed(2).replace(".", ",")}`;
-    precoProduto.classList.add("productPrice");
-
-    const quantidadeProduto = document.createElement("p");
-    quantidadeProduto.innerHTML = `Quantidade: ${quantidade}`;
+    tituloProduto.classList.add("minicartProductName");
 
     const removerDoCarrinho = document.createElement('img');
     removerDoCarrinho.src = "./img/trash-blank.png";
     removerDoCarrinho.classList.add("removeFromMinicart");
-    removerDoCarrinho.style.cursor = "pointer";
+    removerDoCarrinho.title = "Remover produto";
     removerDoCarrinho.addEventListener("click", () => this.removerDoCarrinho(produto.id));
 
-    containerInfo.append(tituloProduto, precoProduto, quantidadeProduto, removerDoCarrinho);
-    containerItem.append(imagemItem, containerInfo);
+    headerInfo.append(tituloProduto, removerDoCarrinho);
 
+    const containerQuantidadePreco = document.createElement("div");
+    containerQuantidadePreco.classList.add("minicartQuantityPriceContainer");
+
+    const containerQuantidade = document.createElement("div");
+    containerQuantidade.classList.add("minicartQuantityControls");
+
+    const botaoMenos = document.createElement("button");
+    botaoMenos.innerHTML = "-";
+    botaoMenos.classList.add("quantityBtn", "quantityBtnMinus");
+    botaoMenos.addEventListener("click", () => this.decrementarQuantidade(produto.id));
+
+    const quantidadeDisplay = document.createElement("span");
+    quantidadeDisplay.innerHTML = quantidade.toString();
+    quantidadeDisplay.classList.add("quantityDisplay");
+
+    const botaoMais = document.createElement("button");
+    botaoMais.innerHTML = "+";
+    botaoMais.classList.add("quantityBtn", "quantityBtnPlus");
+    botaoMais.addEventListener("click", () => this.incrementarQuantidade(produto.id));
+
+    containerQuantidade.append(botaoMenos, quantidadeDisplay, botaoMais);
+
+    // Preço
+    const precoProduto = document.createElement("p");
+    precoProduto.innerHTML = `R$ ${(produto.price * quantidade).toFixed(2).replace(".", ",")}`;
+    precoProduto.classList.add("minicartPrice");
+
+    containerQuantidadePreco.append(containerQuantidade, precoProduto);
+
+    // Montar a estrutura da div de informações
+    containerInfoProduto.append(headerInfo, containerQuantidadePreco);
+
+    // Montar o item final
+    containerItem.append(imagemItem, containerInfoProduto);
     return containerItem;
+  }
+
+  private incrementarQuantidade(id: string): void {
+    const quantidadeAtual = this.minicarrinho.get(id) || 0;
+    this.minicarrinho.set(id, quantidadeAtual + 1);
+    this.construirMinicarrinho();
+  }
+
+  private decrementarQuantidade(id: string): void {
+    const quantidadeAtual = this.minicarrinho.get(id) || 0;
+    if (quantidadeAtual > 1) {
+      this.minicarrinho.set(id, quantidadeAtual - 1);
+    } else {
+      this.minicarrinho.delete(id);
+    }
+    this.construirMinicarrinho();
   }
 
   private abrirMinicarrinho(): void {
