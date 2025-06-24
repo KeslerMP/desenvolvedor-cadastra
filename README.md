@@ -1,13 +1,13 @@
-## Como validar o projeto
-Com node 14 ou superior, execute `npm install`, seguido de um `npm start`. o projeto pode ser visto em `http://localhost:3000/`
+## How to validate the project
+With Node 14 or higher, run `npm install`, followed by `npm start`. The project can be viewed at `http://localhost:3000/`
 
-## Erro ao iniciar o projeto
-Quando estava começando dei um npm start e deu um erro, reparei que ha um 'n' no arquivo do package.json no template do projeto.
+## Error when starting the project
+When I was starting, I ran npm start and got an error, I noticed there was an 'n' in the package.json file in the project template.
 
-## Contatos
-Linkedin: [Kesler Miranda](https://www.linkedin.com/in/kesler-miranda-78749b231/)
+## Contacts
+LinkedIn: [Kesler Miranda](https://www.linkedin.com/in/kesler-miranda-78749b231/)
 
 Email: [kesler.m.pereira@gmail.com](mailto:kesler.m.pereira@gmail.com)
 
-## Sobre o projeto
-Esse projeto foi desenvolvido para o desafio de front-end da empresa [Cadastra](https://www.cadastra.com/). Com o objetivo de criar uma PLP funcional com tecnologias base de front-end, como Typescript e SCSS.
+## About the project
+This project was developed for the front-end challenge from [Cadastra](https://www.cadastra.com/). With the goal of creating a functional PLP using basic front-end technologies such as TypeScript and SCSS.
